@@ -14,6 +14,26 @@
 #include "sama5d2-pinfunc.h"
 
 / {
+	aliases {
+		spi6 = &spi6;
+		tpm0 = &tpm0;
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+		tpm_event_log: tpm-event-log@26f00000{
+			compatible = "tcg,tpm-event-log";
+			reg = <0x36f00000 0x00040000>;
+			no-map;
+		};
+	};
+	chosen {
+		uboot,tpm_event_log = <&tpm_event_log>;
+	};
+
+
 	model = "Microchip SAMA5D29-Curiosity";
 	compatible = "atmel,sama5d29-curiosity", "atmel,sama5d2", "atmel,sama5";
 
@@ -136,6 +156,26 @@
 				pinctrl-0 = <&pinctrl_uart0_default>;
 				status = "okay";
 			};
+			&flx4 {
+				atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_SPI>;
+				status = "okay";
+			};
+			&spi6 {
+				status = "okay";
+				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_spi6_default>;
+				#address-cells =<1>;
+				#size-cells = <0>;
+				
+				tpm@1 {
+					compatible = "infineon,slb9670";
+					reg = <1>;
+					spi-max-frequency = <400000>;
+					status = "okay";
+				};
+			};
+
+	
 
 			pioA: pinctrl@fc038000 {
 				pinctrl_lcd_base: lcd_base {
@@ -244,6 +284,14 @@
 				pinctrl_onewire_tm_default: onewire_tm_default {
 					pinmux = <PIN_PC9__GPIO>;
 					bias-pull-up;
+				};
+				pinctrl_spi6_default: spi6_default {
+					pinmux = <PIN_PD12__FLEXCOM4_IO0>,
+					         <PIN_PD13__FLEXCOM4_IO1>,
+						 <PIN_PD14__FLEXCOM4_IO2>,
+						 <PIN_PD15__FLEXCOM4_IO3>,
+						 <PIN_PD16__FLEXCOM4_IO4>;
+					bias-disable;
 				};
 			};
 		};
