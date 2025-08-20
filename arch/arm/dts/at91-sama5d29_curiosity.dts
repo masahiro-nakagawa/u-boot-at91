@@ -14,6 +14,9 @@
 #include "sama5d2-pinfunc.h"
 
 / {
+	model = "Microchip hiro hiro";
+	compatible = "atmel,sama5d29-curiosity", "atmel,sama5d2", "atmel,sama5";
+
 	aliases {
 		spi6 = &spi6;
 		tpm0 = &tpm0;
@@ -31,13 +34,6 @@
 	};
 	chosen {
 		uboot,tpm_event_log = <&tpm_event_log>;
-	};
-
-
-	model = "Microchip SAMA5D29-Curiosity";
-	compatible = "atmel,sama5d29-curiosity", "atmel,sama5d2", "atmel,sama5";
-
-	chosen {
 		bootargs = "console=ttyS0,115200 root=/dev/mmcblk0p2 rw rootwait";
 		stdout-path = &uart0;
 	};
