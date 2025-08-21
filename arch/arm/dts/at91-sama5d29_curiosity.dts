@@ -273,9 +273,11 @@
 		};
 	};
 };
-
+/* <ATMEL_FLEXCOM_MODE_SPI> is not defined. so manually replace it with 2. 
+   For definiton look for kernel repo include /dt-bindings/mdf/atmel-flexcom.h
+*/
 &flx4 {
-	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_SPI>;
+	atmel,flexcom-mode = <2>;
 	status = "okay";
 };
 			
