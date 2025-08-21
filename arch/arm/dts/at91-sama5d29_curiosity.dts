@@ -17,11 +17,6 @@
 	model = "Microchip hiro hiro";
 	compatible = "atmel,sama5d29-curiosity", "atmel,sama5d2", "atmel,sama5";
 
-	aliases {
-		spi6 = &spi6;
-		tpm0 = &tpm0;
-	};
-
 	reserved-memory {
 		#address-cells = <1>;
 		#size-cells = <1>;
