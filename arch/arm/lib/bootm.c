@@ -68,7 +68,7 @@ static void announce_and_cleanup(int fake)
 
 	board_quiesce_devices();
 
-	printf("\nStarting kernel ...%s\n\n", fake ?
+	printf("\nStarting kernel hiro hiro hiro starting kernel...%s\n\n", fake ?
 		"(fake run for tracing)" : "");
 	/*
 	 * Call remove function of all devices with a removal flag set.
