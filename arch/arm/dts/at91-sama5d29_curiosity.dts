@@ -283,13 +283,13 @@
 	#size-cells = <0>;
 
 	tpm@1 {
-		compatible = "infineon,slb9670","tcg,tpm_tis-spi" ;
+		compatible = "tcg,tpm_tis-spi" ;
 		reg = <1>;
-		spi-max-frequency = <400000>;
+		spi-max-frequency = <100000>;
 		status = "okay";
-		spi-cs-setup-ns = <1500>;
-		spi-cs-hold-ns = <1500>;
-		spi-cs-inactive-ns = <3000>;
+		spi-cs-setup-ns = <5000>;
+		spi-cs-hold-ns = <5000>;
+		spi-cs-inactive-ns = <20000>;
 	};
 };
 
