@@ -43,7 +43,7 @@ static void run_preboot_environment_command(void)
 void main_loop(void)
 {
 	const char *s;
-
+	printf("main_loop\n");
 	bootstage_mark_name(BOOTSTAGE_ID_MAIN_LOOP, "main_loop");
 
 	if (IS_ENABLED(CONFIG_VERSION_VARIABLE))
