@@ -149,3 +149,21 @@ CONFIG_PINCTRL_AT91=y
 CONFIG_LOG=y
 CONFIG_LOG_MAX_LEVEL=7
 CONFIG_DEBUG=y
+CONFIG_DM=y
+CONFIG_OF_CONTROL=y
+
+# SPI framework + your controller
+CONFIG_DM_SPI=y
+CONFIG_SPI=y
+CONFIG_ATMEL_SPI=y
+
+# Shell command you need
+CONFIG_CMD_SPI=y
+
+# Helpful visibility (optional but recommended)
+CONFIG_PINCTRL=y
+CONFIG_PINCTRL_AT91=y
+CONFIG_LOG=y
+CONFIG_LOG_MAX_LEVEL=7
+CONFIG_DEBUG=y
+
