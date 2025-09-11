@@ -287,6 +287,9 @@
 		reg = <1>;
 		spi-max-frequency = <400000>;
 		status = "okay";
+		spi-cs-setup-ns = <1500>;
+		spi-cs-hold-ns = <1500>;
+		spi-cs-inactive-ns = <3000>;
 	};
 };
 
